@@ -1,300 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-<meta charset="UTF-8">
-<title>YASI COIN – Presale</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>YasiCoin Presale</title>
+
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background: #0a0a0a;
-        color: #fff;
-        margin: 0;
-        padding: 0;
-        text-align: center;
+    body { margin:0; padding:20px; font-family:Arial; background:#111; color:#fff; }
+    .container { max-width:600px; margin:auto; }
+    h1, h2, h3 { text-align:center; }
+    button.copy-btn {
+        width:100%; padding:14px; border:none; border-radius:8px;
+        margin-top:10px; background:#ffb600; color:#111; font-weight:bold;
+        display:flex; justify-content:space-between; align-items:center;
     }
-
-    .container {
-        width: 90%;
-        max-width: 900px;
-        margin: auto;
-        padding-top: 30px;
+    input, select {
+        width:100%; padding:10px; margin-top:10px; border-radius:6px; border:none;
     }
-
-    /* LOGO PLATZHALTER */
-    .logo {
-        width: 130px;
-        height: 130px;
-        border-radius: 50%;
-        background: #222;
-        border: 3px dashed #555;
-        margin: 0 auto 20px auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-        color: #888;
-    }
-
-    h1 { font-size: 32px; margin-top: 10px; }
-    h2 { font-size: 26px; margin-top: 40px; }
-    p  { font-size: 16px; line-height: 1.6; }
-
-    /* NEON BUTTONS */
-    .lang-btn {
-        background: #111;
-        border: 1px solid #444;
-        padding: 8px 14px;
-        margin: 3px;
-        color: #aaa;
-        cursor: pointer;
-        border-radius: 4px;
-    }
-    .lang-btn:hover { border-color: #0f0; color: #0f0; }
-
-    /* WIDGET */
-    .widget {
-        background: #111;
-        padding: 20px;
-        border-radius: 10px;
-        margin-top: 30px;
-        border: 1px solid #222;
-        box-shadow: 0 0 8px #0f0;
-    }
-
-    select, input {
-        width: 90%;
-        padding: 12px;
-        margin: 10px 0;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        background: #222;
-        color: #fff;
-    }
-
-    .wallet-box {
-        background: #1a1a1a;
-        padding: 15px;
-        border-radius: 8px;
-        margin-top: 10px;
-        border: 1px solid #333;
-        text-align: left;
-    }
-
-    .copy-btn {
-        float: right;
-        padding: 5px 10px;
-        background: #0f0;
-        color: #000;
-        font-weight: bold;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 12px;
-    }
-
-    .roadmap, .about {
-        background: #111;
-        padding: 20px;
-        border-radius: 10px;
-        margin-top: 20px;
-        border: 1px solid #222;
-        text-align: left;
-    }
-
-    /* PRESALE COUNTER */
-    .counter {
-        font-size: 22px;
-        margin: 20px 0;
-        color: #0f0;
-        font-weight: bold;
+    .submit-btn {
+        background:#ffb600; color:#111; font-weight:bold; margin-top:20px;
+        border:none; border-radius:8px; padding:14px; width:100%;
     }
 </style>
+
 </head>
 <body>
 
 <div class="container">
 
-    <!-- LOGO-PLATZHALTER -->
-    <div class="logo">YASI COIN<br>LOGO</div>
+    <h1>YasiCoin Presale</h1>
+    <h3>Zahlungsmethode wählen</h3>
 
-    <!-- LANGUAGE SWITCH -->
-    <div>
-        <button class="lang-btn" onclick="switchLang('en')">English</button>
-        <button class="lang-btn" onclick="switchLang('de')">Deutsch</button>
-    </div>
+    <!-- WALLET BUTTONS (Adressen unsichtbar, nur im Button versteckt) -->
+    <button class="copy-btn" onclick="copyAddress('HhUxda57mP8dP6dzJ4RkYveTAXVgeVydZgSw6d9XjzUs')">
+        Mit SOL bezahlen (SOL)
+        <span>📋 Copy</span>
+    </button>
 
-    <!-- TITLE -->
-    <h1 id="title">YASI COIN – Official Presale</h1>
+    <button class="copy-btn" onclick="copyAddress('0x4a3af3D8761A4Ce8781da1F1B1E0F3420e900a0E')">
+        Mit ETH bezahlen (ETH)
+        <span>📋 Copy</span>
+    </button>
 
-    <!-- PRESALE COUNTDOWN -->
-    <div class="counter" id="counter">Presale ends in: --:--:--</div>
+    <button class="copy-btn" onclick="copyAddress('bc1qmn52hn6wzn3jmxls9te32x2amw26pmk807j6mt')">
+        Mit Bitcoin bezahlen (BTC)
+        <span>📋 Copy</span>
+    </button>
 
-    <!-- INTRO TEXT -->
-    <p id="intro">
-        Buy YASI now in the presale.  
-        Select your crypto, send the payment, and receive your YASI manually.
+    <button class="copy-btn" onclick="copyAddress('0x4a3af3D8761A4Ce8781da1F1B1E0F3420e900a0E')">
+        Mit BNB bezahlen (BNB)
+        <span>📋 Copy</span>
+    </button>
+
+    <p style="opacity:0.7; font-size:14px; text-align:center;">
+        (Adresse wird automatisch kopiert)
     </p>
 
-    <!-- WIDGET -->
-    <div class="widget">
-        <h2 id="widgetTitle">Presale Widget</h2>
+    <hr><br>
 
-        <p><strong id="price">1 YASI = 0.02 USD</strong></p>
+    <h3>Nach der Zahlung bitte das Formular ausfüllen</h3>
 
-        <label id="selectCryptoLabel">Select Crypto</label><br>
-        <select id="cryptoSelect">
-            <option value="BNB">BNB</option>
-            <option value="BTC">BTC</option>
-            <option value="SOL">SOL</option>
-            <option value="ETH">ETH</option>
+    <form id="presaleForm">
+        <select name="chain" required>
+            <option value="">Chain auswählen</option>
+            <option>SOL</option>
+            <option>ETH</option>
+            <option>BTC</option>
+            <option>BNB</option>
         </select>
 
-        <label id="amountLabel">Amount (YASI)</label>
-        <input type="number" id="yasiAmount" placeholder="Enter YASI amount" oninput="updatePrice()">
+        <input type="text" name="amount" placeholder="Gesendeter Betrag" required />
+        <input type="text" name="txhash" placeholder="TX Hash / Transaktions-ID" required />
+        <input type="text" name="bnbwallet" placeholder="Deine BNB Wallet" required />
 
-        <p id="totalUSD">Total USD: <span id="usdTotal">0</span> $</p>
-
-        <div class="wallet-box">
-            <strong id="walletLabel">Wallet Address:</strong>
-            <button class="copy-btn" onclick="copyWallet()">Copy</button>
-            <p id="walletAddress"></p>
-        </div>
-    </div>
-
-    <!-- ABOUT -->
-    <h2 id="aboutTitle">About YASI</h2>
-    <div class="about" id="aboutText">
-        YASI Coin is a new utility token for digital content.  
-        In the future, users will pay for chat access, videos and premium features  
-        **exclusively with YASI.**
-    </div>
-
-    <!-- ROADMAP -->
-    <h2 id="roadmapTitle">Roadmap</h2>
-
-    <div class="roadmap" id="roadmapText">
-        <p><strong>Phase 1 – Presale</strong><br>
-        • Website Launch<br>
-        • Presale Widget<br>
-        • Community Building</p>
-
-        <p><strong>Phase 2 – Token Launch</strong><br>
-        • YASI Deployment<br>
-        • Listings<br>
-        • First Marketing Campaign</p>
-
-        <p><strong>Phase 3 – Platform Launch</strong><br>
-        • Video Platform & Chat System<br>
-        • Wallet Login<br>
-        • YASI Payment Integration</p>
-
-        <p><strong>Phase 4 – Expansion</strong><br>
-        • Influencer Partnerships<br>
-        • Mobile App<br>
-        • Premium System</p>
-    </div>
-
-    <p style="margin-top:40px; color:#0f0; font-size:20px;">Thank You ❤️</p>
+        <button class="submit-btn" type="submit">Absenden</button>
+    </form>
 
 </div>
 
 <script>
-/* WALLET ADDRESSES */
-const wallets = {
-    "BNB": "0x4a3af3D8761A4Ce8781da1F1B1E0F3420e900a0E",
-    "ETH": "0x4a3af3D8761A4Ce8781da1F1B1E0F3420e900a0E",
-    "SOL": "HhUxda57mP8dP6dzJ4RkYveTAXVgeVydZgSw6d9XjzUs",
-    "BTC": "bc1qmn52hn6wzn3jmxls9te32x2amw26pmk807j6mt"
-};
-
-/* SET DEFAULT */
-document.getElementById("walletAddress").innerText = wallets["BNB"];
-
-/* PRICE CALC */
-function updatePrice() {
-    let amount = document.getElementById("yasiAmount").value;
-    let total = amount * 0.02;
-    document.getElementById("usdTotal").innerText = total.toFixed(2);
+function copyAddress(addr) {
+    navigator.clipboard.writeText(addr);
+    alert("Wallet-Adresse kopiert!");
 }
 
-/* CRYPTO SWITCH */
-document.getElementById("cryptoSelect").addEventListener("change", function() {
-    document.getElementById("walletAddress").innerText = wallets[this.value];
+document.getElementById("presaleForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const form = new FormData(e.target);
+
+    const msg =
+        "📩 *Neue Presale-Zahlung*\n\n" +
+        "🔗 Chain: " + form.get("chain") + "\n" +
+        "💰 Betrag: " + form.get("amount") + "\n" +
+        "🧾 TX Hash: " + form.get("txhash") + "\n" +
+        "🏦 BNB Wallet Käufer: " + form.get("bnbwallet") + "\n" +
+        "⏰ Zeit: " + new Date().toLocaleString();
+
+    const botToken = "8576976965:AAFGzp0hUNRdgdpWdd9AwEyS4vyP6OOFDBE";
+    const chatId = "6519044255";
+
+    await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            chat_id: chatId,
+            text: msg,
+            parse_mode: "Markdown"
+        })
+    });
+
+    alert("Daten erfolgreich gesendet!");
+    e.target.reset();
 });
-
-/* COPY */
-function copyWallet() {
-    let text = document.getElementById("walletAddress").innerText;
-    navigator.clipboard.writeText(text);
-    alert("Wallet copied: " + text);
-}
-
-/* PRESALE COUNTDOWN */
-let presaleEnd = new Date();
-presaleEnd.setDate(presaleEnd.getDate() + 7); // 7 Tage Presale
-
-setInterval(function() {
-    let now = new Date().getTime();
-    let diff = presaleEnd - now;
-
-    if (diff <= 0) {
-        document.getElementById("counter").innerText = "Presale ended";
-        return;
-    }
-
-    let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    let hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    let minutes = Math.floor((diff / (1000 * 60)) % 60);
-    let seconds = Math.floor((diff / 1000) % 60);
-
-    document.getElementById("counter").innerText =
-        "Presale ends in: " + days + "d " + hours + "h " + minutes + "m " + seconds + "s";
-}, 1000);
-
-/* LANGUAGE SWITCH */
-function switchLang(lang) {
-    if (lang === "de") {
-        document.getElementById("title").innerText = "YASI COIN – Offizieller Presale";
-        document.getElementById("intro").innerText =
-            "Kaufe jetzt YASI im Presale. Wähle deine Crypto, sende die Zahlung, und erhalte YASI manuell.";
-        document.getElementById("widgetTitle").innerText = "Presale-Widget";
-        document.getElementById("selectCryptoLabel").innerText = "Wähle Crypto";
-        document.getElementById("amountLabel").innerText = "Menge (YASI)";
-        document.getElementById("walletLabel").innerText = "Wallet-Adresse:";
-        document.getElementById("aboutTitle").innerText = "Über YASI";
-        document.getElementById("aboutText").innerHTML =
-            "YASI Coin ist ein neuer Utility-Token für digitale Inhalte.<br>In Zukunft bezahlt man für Chat, Videos und Premium-Zugang<br><strong>ausschließlich mit YASI.</strong>";
-        document.getElementById("roadmapTitle").innerText = "Roadmap";
-        document.getElementById("roadmapText").innerHTML = `
-            <p><strong>Phase 1 – Presale</strong><br>
-            • Website Launch<br>
-            • Presale Widget<br>
-            • Community Aufbau</p>
-
-            <p><strong>Phase 2 – Token Launch</strong><br>
-            • YASI Deployment<br>
-            • Listings<br>
-            • Erste Marketing-Kampagne</p>
-
-            <p><strong>Phase 3 – Plattform Launch</strong><br>
-            • Video-Plattform & Chat-System<br>
-            • Wallet Login<br>
-            • YASI Payment Integration</p>
-
-            <p><strong>Phase 4 – Expansion</strong><br>
-            • Influencer-Kooperationen<br>
-            • Mobile App<br>
-            • Premium-System</p>
-        `;
-    }
-
-    if (lang === "en") {
-        location.reload(); // einfachste Rückstellung auf die englische Ursprungsversion
-    }
-}
 </script>
 
 </body>
-</html>
+    </html>
